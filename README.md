@@ -155,7 +155,7 @@ bun run smoke
 TypeScript checks, and builds the Vite entry. `bun run dev` builds and launches
 the native example. `bun run smoke` builds the complete tree, opens a real GPUI
 window, finds and clicks the `increment` control, requires both `Count: 1` and
-`Double: 2`, and writes `artifacts/elm-gpuix-smoke.png`.
+`Triple: 3`, and writes `artifacts/elm-gpuix-smoke.png`.
 
 ## License
 

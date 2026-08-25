@@ -39,7 +39,7 @@ async function runSmoke(): Promise<void> {
 
     runtime.renderer.simulateClick(x + width / 2, y + height / 2);
 
-    const text = await waitForText(["Count: 1", "Double: 2"]);
+    const text = await waitForText(["Count: 1", "Triple: 3"]);
     await sleep(50);
 
     const screenshotPath =
