@@ -1,0 +1,54 @@
+{
+  "name": "elm-gpuix",
+  "version": "1.0.0",
+  "description": "GPUix host for official Elm Browser.element and Html applications",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "workspaces": [
+    "example"
+  ],
+  "scripts": {
+    "setup": "bun install && bun run check",
+    "test": "vitest run --config runtime/vitest.config.ts",
+    "check:elm": "elm make --docs=docs.json",
+    "check:runtime": "tsc -p runtime/tsconfig.json --noEmit",
+    "check:dist": "node --input-type=module -e \"await import('./dist/index.js')\"",
+    "check:example": "bun run --cwd example check",
+    "check": "bun run check:elm && bun run test && bun run check:runtime && bun run build:runtime && bun run check:dist && bun run check:example && bun run build:example",
+    "build:runtime": "tsc -p runtime/tsconfig.json",
+    "build:example": "bun run --cwd example build",
+    "build": "bun run build:runtime && bun run build:example",
+    "dev": "bun run build:runtime && bun run --cwd example dev",
+    "smoke": "bun run build && bun run --cwd example smoke:run",
+    "prepublishOnly": "bun run check"
+  },
+  "dependencies": {
+    "@gpuix/native": "0.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "elm": "0.19.2-0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "bun@1.4.0"
+}
