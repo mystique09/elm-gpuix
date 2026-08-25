@@ -1,0 +1,7 @@
+node_modules/
+dist/
+elm-stuff/
+docs.json
+artifacts/*.png
+*.log
+.DS_Store
