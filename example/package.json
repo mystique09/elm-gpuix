@@ -1,0 +1,27 @@
+{
+  "name": "elm-gpuix-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:elm": "elm make src/Main.elm --output=/dev/null",
+    "check:ts": "tsc --noEmit",
+    "check": "bun run check:elm && bun run check:ts",
+    "build": "vite build",
+    "start": "bun dist/host.js",
+    "dev": "bun run build && bun run start",
+    "smoke:run": "ELM_GPUIX_SMOKE=1 bun dist/host.js"
+  },
+  "dependencies": {
+    "elm-gpuix": "file:.."
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "elm": "0.19.2-0",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vite-plugin-elm": "3.0.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}
